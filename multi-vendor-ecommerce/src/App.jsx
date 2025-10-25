@@ -2,9 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import './App.css';
 import './styles/profile.css';
 
-// Import pages
-import Landing from './pages/landing';
-import Cart from './pages/cart';
+// Profile pages
 import ProfileLayout from './pages/profile/ProfileLayout';
 import ProfileOverview from './pages/profile/ProfileOverview';
 import Orders from './pages/profile/Orders';
@@ -15,18 +13,25 @@ import Addresses from './pages/profile/Addresses';
 import Settings from './pages/profile/Settings';
 
 function App() {
-  const isAuthenticated = true;
-
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Landing />} />
-        <Route path="/cart" element={<Cart />} />
-        
+        {/* Temporary home page */}
         <Route 
-          path="/profile" 
-          element={isAuthenticated ? <ProfileLayout /> : <Navigate to="/" />}
-        >
+          path="/" 
+          element={
+            <div style={{ padding: '2rem', textAlign: 'center' }}>
+              <h1>E-Commerce Platform</h1>
+              <p>Welcome! The landing page is being built by your teammate.</p>
+              <a href="/profile" style={{ color: '#E85D04', fontSize: '1.2rem', fontWeight: 'bold' }}>
+                Go to Profile Section →
+              </a>
+            </div>
+          } 
+        />
+        
+        {/* Profile routes */}
+        <Route path="/profile" element={<ProfileLayout />}>
           <Route index element={<ProfileOverview />} />
           <Route path="orders" element={<Orders />} />
           <Route path="orders/:orderId" element={<OrderDetails />} />
@@ -35,6 +40,9 @@ function App() {
           <Route path="addresses" element={<Addresses />} />
           <Route path="settings" element={<Settings />} />
         </Route>
+
+        {/* 404 - Redirect to home */}
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Router>
   );
