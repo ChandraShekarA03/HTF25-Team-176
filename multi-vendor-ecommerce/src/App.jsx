@@ -1,4 +1,13 @@
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import Login from './pages/LoginForm.jsx';
+import SignUp from './pages/SignUpForm.jsx';
+
+// Import fonts
+import '@fontsource/lobster-two';
+import '@fontsource/playfair-display';
+import '@fontsource/nunito';
+import '@fontsource/gloria-hallelujah';
 import './App.css';
 import './styles/profile.css';
 
@@ -29,7 +38,9 @@ function App() {
             </div>
           } 
         />
-        
+        {/* Login and Signup routes */}
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
         {/* Profile routes */}
         <Route path="/profile" element={<ProfileLayout />}>
           <Route index element={<ProfileOverview />} />
@@ -40,7 +51,6 @@ function App() {
           <Route path="addresses" element={<Addresses />} />
           <Route path="settings" element={<Settings />} />
         </Route>
-
         {/* 404 - Redirect to home */}
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
@@ -49,3 +59,4 @@ function App() {
 }
 
 export default App;
+
