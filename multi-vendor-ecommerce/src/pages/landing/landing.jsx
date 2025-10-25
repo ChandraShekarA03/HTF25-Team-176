@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../components/common/Header"; // adjust path if Header is under src/components/common
+import Header from "../../components/common/Header"; // adjust path if Header is under src/components/common
 
 const Landing = () => {
   const featuredProducts = [
