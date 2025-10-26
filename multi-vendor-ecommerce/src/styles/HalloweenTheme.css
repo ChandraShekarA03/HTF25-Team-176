@@ -48,6 +48,57 @@ html, body {
 }
 
 /* Base Styles */
+.halloween-button {
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(to right, var(--pumpkin-spice), var(--warm-yellow));
+  color: var(--midnight-purple);
+  border-radius: 0.5rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.halloween-button:hover {
+  background: linear-gradient(to right, var(--warm-yellow), var(--pumpkin-spice));
+}
+
+.halloween-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--pumpkin-spice), 0 0 0 4px rgba(232, 93, 4, 0.2);
+}
+
+.halloween-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: var(--midnight-purple);
+  border: 2px solid var(--pumpkin-spice);
+  border-radius: 0.5rem;
+  color: var(--soft-beige);
+  transition: all 0.3s ease;
+}
+
+.halloween-input:focus {
+  outline: none;
+  border-color: var(--warm-yellow);
+  box-shadow: 0 0 0 2px var(--warm-yellow);
+}
+
+.halloween-label {
+  display: block;
+  color: var(--soft-beige);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.landing-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+  animation: fadeIn 1s ease-in;
+}
 body {
   background: linear-gradient(135deg, var(--midnight-purple) 0%, #3D0052 100%);
   color: var(--soft-beige);
