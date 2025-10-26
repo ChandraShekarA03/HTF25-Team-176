@@ -108,6 +108,53 @@
   .customer-footer {
     @apply bg-gray-900 border-t border-pumpkin/20 mt-16;
   }
+
+  /* Loading Spinner */
+  .loading-spinner {
+    @apply inline-block w-4 h-4 border-2 border-pumpkin border-t-transparent rounded-full animate-spin;
+  }
+
+  /* Page Transition Animations */
+  .page-transition {
+    @apply transition-all duration-500 ease-in-out;
+  }
+  .page-enter {
+    @apply opacity-0 transform translate-y-4;
+  }
+  .page-enter-active {
+    @apply opacity-100 transform translate-y-0;
+  }
+  .page-exit {
+    @apply opacity-100 transform translate-y-0;
+  }
+  .page-exit-active {
+    @apply opacity-0 transform -translate-y-4;
+  }
+
+  /* Button Animations */
+  .btn-animated {
+    @apply transition-all duration-200 ease-in-out;
+  }
+  .btn-animated:hover {
+    @apply transform scale-105 shadow-lg;
+  }
+  .btn-animated:active {
+    @apply transform scale-95;
+  }
+
+  /* Skeleton Loader */
+  .skeleton {
+    @apply bg-gray-700 animate-pulse rounded;
+  }
+  .skeleton-text {
+    @apply skeleton h-4 w-full mb-2;
+  }
+  .skeleton-title {
+    @apply skeleton h-6 w-3/4 mb-4;
+  }
+  .skeleton-card {
+    @apply skeleton h-32 w-full mb-4;
+  }
 }
 
 .login-tab {
@@ -169,7 +216,7 @@
   margin-bottom: 1rem; /* The default 'mb-4' */
 }
 
-/* NEW: Animation for the card fading in on load 
+/* NEW: Animation for the card fading in on load
 */
 @keyframes card-fade-in {
   from { opacity: 0; transform: translateY(10px); }
@@ -177,4 +224,154 @@
 }
 .card-enter {
   animation: card-fade-in 0.5s ease-out;
+}
+
+/* Page Transition Animations */
+@keyframes page-fade-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes page-fade-out {
+  from { opacity: 1; transform: translateY(0); }
+  to   { opacity: 0; transform: translateY(-20px); }
+}
+
+.page-enter {
+  animation: page-fade-in 0.3s ease-out;
+}
+
+.page-exit {
+  animation: page-fade-out 0.2s ease-in;
+}
+
+/* Loading Spinner */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #F46F00;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+/* Button Press Animation */
+@keyframes button-press {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+.btn-press {
+  animation: button-press 0.2s ease-in-out;
+}
+
+/* Skeleton Loading */
+@keyframes skeleton-loading {
+  0% { background-position: -200px 0; }
+  100% { background-position: calc(200px + 100%) 0; }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200px 100%;
+  animation: skeleton-loading 1.5s infinite;
+}
+
+/* Enhanced Product Card Hover */
+.product-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(244, 111, 0, 0.3);
+}
+
+/* Form Submission Animation */
+@keyframes form-submit {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.form-submit {
+  animation: form-submit 0.3s ease-in-out;
+}
+
+/* Notification Toast */
+@keyframes toast-slide-in {
+  from { transform: translateX(100%); opacity: 0; }
+  to   { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes toast-slide-out {
+  from { transform: translateX(0); opacity: 1; }
+  to   { transform: translateX(100%); opacity: 0; }
+}
+
+.toast-enter {
+  animation: toast-slide-in 0.3s ease-out;
+}
+
+.toast-exit {
+  animation: toast-slide-out 0.3s ease-in;
+}
+
+/* Enhanced Product Card Hover Animation */
+.product-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(244, 111, 0, 0.3);
+}
+
+.product-card img {
+  transition: transform 0.3s ease-in-out;
+}
+
+.product-card:hover img {
+  transform: scale(1.1);
+}
+
+/* Loading Overlay */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(16, 15, 15, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  backdrop-filter: blur(4px);
+}
+
+.loading-overlay.hidden {
+  display: none;
+}
+
+/* Bounce Animation for Success Messages */
+@keyframes bounce-in {
+  0% { transform: scale(0.3); opacity: 0; }
+  50% { transform: scale(1.05); }
+  70% { transform: scale(0.9); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.bounce-in {
+  animation: bounce-in 0.6s ease-out;
+}
+
+/* Pulse Animation for Notifications */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.pulse {
+  animation: pulse 2s infinite;
 }
