@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SpookyMart - E-Commerce</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster+Two&family=Nunito:wght@400;600;700&family=Playfair+Display:wght@500;700&family=Open+Sans:wght@400;600&family=Gloria+Hallelujah&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'spooky-bg': '#100F0F',
+              pumpkin: '#F46F00',
+              'pumpkin-dark': '#D86100',
+              'ghost-white': '#F5F5F5',
+              'witch-purple': '#4B0082',
+              'slime-green': '#90EE90',
+            },
+            fontFamily: {
+              lobster: ['"Lobster Two"', 'cursive'],
+              playfair: ['"Playfair Display"', 'serif'],
+              nunito: ['"Nunito"', 'sans-serif'],
+              'open-sans': ['"Open Sans"', 'sans-serif'],
+              gloria: ['"Gloria Hallelujah"', 'cursive'],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+
+  <body
+    class="bg-spooky-bg text-ghost-white font-nunito min-h-screen flex flex-col items-center justify-start"
+  >
+    <!-- Header -->
+    <header
+      class="w-full flex justify-between items-center px-8 py-5 bg-witch-purple shadow-lg"
+    >
+      <h1 class="text-3xl font-lobster text-pumpkin">
+        🕸️ SpookyMart
+      </h1>
+      <nav class="space-x-6">
+        <a href="#" class="hover:text-pumpkin transition">Home</a>
+        <a href="#" class="hover:text-pumpkin transition">Shop</a>
+        <a href="#" class="hover:text-pumpkin transition font-bold">Cart</a>
+      </nav>
+    </header>
+
+    <!-- Cart Section -->
+    <main class="w-full max-w-5xl mt-10 px-6">
+      <h2 class="text-4xl font-playfair mb-6 text-center text-slime-green">
+        Your Spooky Mart 🛒
+      </h2>
+
+      <!-- Cart Items -->
+      <div class="bg-[#1A1A1A] rounded-2xl shadow-md p-6 space-y-6">
+        <!-- Item 1 -->
+        <div
+          class="flex flex-col md:flex-row items-center justify-between bg-[#181818] p-4 rounded-xl"
+        >
+          <div class="flex items-center space-x-4">
+            <img
+              src="https://images.unsplash.com/photo-1606813902913-0e2b0adcc8df?auto=format&fit=crop&w=600&q=80"
+              alt="Pumpkin Candle"
+              class="w-24 h-24 rounded-lg object-cover"
+            />
+            <div>
+              <h3 class="text-xl font-semibold text-pumpkin">
+                Pumpkin Spice Candle
+              </h3>
+              <p class="text-gray-300">Soothing aroma for spooky nights</p>
+            </div>
+          </div>
+
+          <div class="flex items-center space-x-4 mt-4 md:mt-0">
+            <input
+              type="number"
+              min="1"
+              value="1"
+              class="w-14 text-center rounded-md bg-[#2A2A2A] text-white border border-pumpkin-dark focus:ring-pumpkin focus:border-pumpkin outline-none"
+            />
+            <p class="text-lg font-bold">$12.99</p>
+            <button
+              class="text-red-500 hover:text-pumpkin transition font-semibold"
+            >
+              ✖
+            </button>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div
+          class="flex flex-col md:flex-row items-center justify-between bg-[#181818] p-4 rounded-xl"
+        >
+          <div class="flex items-center space-x-4">
+            <img
+              src="https://images.unsplash.com/photo-1578325183261-5e6e9a2f0f9e?auto=format&fit=crop&w=600&q=80"
+              alt="Witch Hat"
+              class="w-24 h-24 rounded-lg object-cover"
+            />
+            <div>
+              <h3 class="text-xl font-semibold text-pumpkin">
+                Classic Witch Hat
+              </h3>
+              <p class="text-gray-300">Perfect for any costume party</p>
+            </div>
+          </div>
+
+          <div class="flex items-center space-x-4 mt-4 md:mt-0">
+            <input
+              type="number"
+              min="1"
+              value="2"
+              class="w-14 text-center rounded-md bg-[#2A2A2A] text-white border border-pumpkin-dark focus:ring-pumpkin focus:border-pumpkin outline-none"
+            />
+            <p class="text-lg font-bold">$24.50</p>
+            <button
+              class="text-red-500 hover:text-pumpkin transition font-semibold"
+            >
+              ✖
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Total & Checkout -->
+      <div
+        class="flex flex-col md:flex-row justify-between items-center bg-[#1C1C1C] rounded-xl p-6 mt-10"
+      >
+        <h3 class="text-2xl font-playfair">
+          Total: <span class="text-pumpkin font-bold">$37.49</span>
+        </h3>
+        <button
+          class="mt-4 md:mt-0 bg-pumpkin hover:bg-pumpkin-dark text-ghost-white px-8 py-3 rounded-lg font-bold transition duration-300 shadow-lg"
+        >
+          Proceed to Checkout
+        </button>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer
+      class="mt-20 w-full bg-witch-purple text-center py-6 text-ghost-white text-sm"
+    >
+      &copy; 2025 SpookyMart - <span class="text-slime-green">All rights reserved</span>
+    </footer>
+  </body>
+</html>
