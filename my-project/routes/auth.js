@@ -139,4 +139,52 @@ router.get('/profile', authenticateToken, (req, res) => {
   });
 });
 
+// Get unapproved vendors
+router.get('/unapproved-vendors', authenticateToken, (req, res) => {
+  if (req.user.role !== 'admin') {
+    return res.status(403).json({ error: 'Forbidden' });
+  }
+
+  db.all("SELECT id, name, email, company_name FROM users WHERE role = 'vendor' AND is_approved = 0", [], (err, rows) => {
+    if (err) {
+      return res.status(500).json({ error: 'Database error' });
+    }
+    res.json(rows);
+  });
+});
+
+// Approve a vendor
+router.put('/approve-vendor/:id', authenticateToken, (req, res) => {
+  if (req.user.role !== 'admin') {
+    return res.status(403).json({ error: 'Forbidden' });
+  }
+
+  db.run("UPDATE users SET is_approved = 1 WHERE id = ? AND role = 'vendor'", [req.params.id], function(err) {
+    if (err) {
+      return res.status(500).json({ error: 'Database error' });
+    }
+    if (this.changes === 0) {
+      return res.status(404).json({ error: 'Vendor not found' });
+    }
+    res.json({ message: 'Vendor approved' });
+  });
+});
+
+// Deny a vendor
+router.delete('/deny-vendor/:id', authenticateToken, (req, res) => {
+  if (req.user.role !== 'admin') {
+    return res.status(403).json({ error: 'Forbidden' });
+  }
+
+  db.run("DELETE FROM users WHERE id = ? AND role = 'vendor'", [req.params.id], function(err) {
+    if (err) {
+      return res.status(500).json({ error: 'Database error' });
+    }
+    if (this.changes === 0) {
+      return res.status(404).json({ error: 'Vendor not found' });
+    }
+    res.json({ message: 'Vendor denied and removed' });
+  });
+});
+
 module.exports = router;
