@@ -6,7 +6,8 @@ tailwind.config = {
         'spooky-bg': '#100F0F', // A deep, dark black for backgrounds
         'pumpkin': '#F46F00',   // A bright, rich orange
         'pumpkin-dark': '#D86100',
-        'ghost-white': '#F5F5F5', // A slightly off-white for text
+        'ghost-white': '#fcfcfc', // A slightly off-white for text
+        'pink-white': '#fc7fcc',
         'witch-purple': '#4B0082', // A deep indigo/purple
         'slime-green': '#90EE90', // A light, spooky green for accents
       },
